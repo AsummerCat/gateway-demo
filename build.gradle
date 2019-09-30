@@ -1,0 +1,62 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'           //spring提供的spring boot插件,主要用到了其依赖管理的功能.
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+}
+
+
+
+
+
+allprojects {
+    group = 'com.linjingc'
+    version = '0.0.1-SNAPSHOT'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'org.springframework.boot'                        //spring boot插件
+    apply plugin: 'io.spring.dependency-management'                 //实现maven的依赖统一管理功能
+    
+    ext {
+        //定义一个变量，统一规定springboot的版本
+        springCloudVersion = 'Finchley.SR1'
+    }
+
+    //指定编码格式
+    tasks.withType(JavaCompile) { options.encoding = "UTF-8" }
+
+    sourceCompatibility = '1.8'
+    targetCompatibility  = '1.8'
+    
+    repositories {
+        mavenCentral()
+    }
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = "4.8"  //这里的版本根据自己的需求变更.
+    }
+
+
+}
+
+
+subprojects {
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    dependencies {
+        compile 'org.projectlombok:lombok:1.18.8'
+        compile 'org.springframework.boot:spring-boot-starter'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+
+
+}
+
+
+
+
+
