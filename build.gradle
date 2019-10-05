@@ -30,9 +30,9 @@ allprojects {
         mavenCentral()
     }
 
-    task wrapper(type: Wrapper) {
-        gradleVersion = "4.8"  //这里的版本根据自己的需求变更.
-    }
+//    task wrapper(type: Wrapper) {
+//        gradleVersion = "5.6.1"  //这里的版本根据自己的需求变更.
+//    }
 
 
 }
