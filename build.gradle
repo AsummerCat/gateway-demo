@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.1.8.RELEASE'           //spring提供的spring boot插件,主要用到了其依赖管理的功能.
+    id 'org.springframework.boot' version '2.1.7.RELEASE'           //spring提供的spring boot插件,主要用到了其依赖管理的功能.
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 }
 
@@ -17,7 +17,7 @@ allprojects {
     
     ext {
         //定义一个变量，统一规定springboot的版本
-        springCloudVersion = 'Finchley.SR1'
+        springCloudVersion = 'Greenwich.SR2'
     }
 
     //指定编码格式

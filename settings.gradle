@@ -1,2 +1,3 @@
 rootProject.name = 'gateway-demo'
 include 'gateway-api'
+include 'web'
