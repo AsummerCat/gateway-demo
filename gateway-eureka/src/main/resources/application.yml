@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: gateway-rureka
+
+  cloud:
+    gateway:
+      ## 默认根据服务匹配
+      discovery:
+        locator:
+          enabled: true
+          ## 服务名称小写
+          lowerCaseServiceId: true
+
+          # 自定义路由
+      routes:
+        - id: web-server
+          # lb: 后面是服务名称
+          uri: lb://web-server
+          predicates:
+            - Path=/web/**
+server:
+  port: 8091
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka
