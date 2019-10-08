@@ -4,10 +4,10 @@ spring:
 
   cloud:
     gateway:
-      ## 默认根据服务匹配
+      ## 默认根据服务自动匹配
       discovery:
         locator:
-#          enabled: true
+          enabled: true
 #          ## 服务名称小写
           lowerCaseServiceId: true
 
