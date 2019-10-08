@@ -7,17 +7,20 @@ spring:
       ## 默认根据服务匹配
       discovery:
         locator:
-          enabled: true
-          ## 服务名称小写
+#          enabled: true
+#          ## 服务名称小写
           lowerCaseServiceId: true
 
           # 自定义路由
       routes:
         - id: web-server
           # lb: 后面是服务名称
-          uri: lb://web-server
+          uri: lb://WEB-SERVER
           predicates:
             - Path=/web/**
+          filters:
+            - StripPrefix=1
+
 server:
   port: 8091
 

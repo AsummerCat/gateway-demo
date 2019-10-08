@@ -21,4 +21,8 @@ public class WebApplication {
 	public String helloworld(HttpServletRequest request) {
 		return "helloword";
 	}
+	@RequestMapping("/")
+	public String index(HttpServletRequest request) {
+		return "index";
+	}
 }
